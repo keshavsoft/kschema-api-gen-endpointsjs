@@ -3,6 +3,7 @@ import { locateDestination } from "./Helpers/steps/locateDestination.js";
 import { createFolder } from "../core/createFolder.js";
 
 import { updateAppJs } from "./Helpers/steps/updateRoutesJs.js";
+import updateEndPointsFile from "./Helpers/steps/updateEndPointsFile.js";
 
 import { announce } from "./Helpers/steps/announce.js";
 
@@ -31,6 +32,11 @@ export default ({ folderName = "", tableName,
             appJsPath: `${localToPath}/end-points.js`,
             endpoint: folderName,
             inShowLog
+        });
+
+        updateEndPointsFile({
+            filePath: `${localToPath}/end-points.js`,
+            inTableName: tableName
         });
     };
 
