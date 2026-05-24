@@ -29,13 +29,13 @@ export default ({ folderName = "", tableName,
 
     if (createFolderResponse.KTF) {
         updateAppJs({
-            appJsPath: `${localToPath}/end-points.js`,
+            appJsPath: `${localToPath}/routes.js`,
             endpoint: folderName,
             inShowLog
         });
 
         updateEndPointsFile({
-            filePath: `${localToPath}/end-points.js`,
+            filePath: `${localToPath}/${folderName}/end-points.js`,
             inTableName: tableName
         });
     };
