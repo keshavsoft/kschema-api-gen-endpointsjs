@@ -6,22 +6,15 @@ import { announce } from "./Helpers/steps/announce.js";
 
 import resolveFolderName from "./Helpers/steps/resolveFolderName.js";
 
-export default ({ folderName = "", argsAsIs, toPath, isAnnounce = true, checkBeforeCreate = true }) => {
+export default ({ folderName = "", tableName,
+    argsAsIs, toPath, isAnnounce = true,
+    checkBeforeCreate = true }) => {
+
     const localToPath = toPath;
-
-    const resolvedFolderName = resolveFolderName({
-        name: folderName
-    });
-
-    if (resolvedFolderName.KTF === false) {
-        console.log(resolvedFolderName.KReason);
-
-        return folderName;
-    };
 
     const source = locateSource();
     const destination = locateDestination({
-        inResolvedFolderName: resolvedFolderName,
+        inResolvedFolderName: folderName,
         toPath: localToPath
     });
 
@@ -33,11 +26,11 @@ export default ({ folderName = "", argsAsIs, toPath, isAnnounce = true, checkBef
     if (createFolderResponse.KTF) {
         updateAppJs({
             appJsPath: `${localToPath}/routes.js`,
-            endpoint: resolvedFolderName
+            endpoint: folderName
         });
     };
 
-    if (isAnnounce) announce({ inResolvedFolderName: resolvedFolderName });
+    if (isAnnounce) announce({ inResolvedFolderName: folderName });
 
-    return resolvedFolderName;
+    return folderName;
 };

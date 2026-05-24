@@ -4,10 +4,11 @@ const startFunc = async () => {
     const fn = await index();
 
     await fn({
-        folderName: "V1",
+        folderName: "Table1",
         toPath: process.cwd(),
         showLog: false,
-        isAnnounce: false
+        isAnnounce: false,
+        tableName: "Table1"
     });
 };
 
