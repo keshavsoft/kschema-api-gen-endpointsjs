@@ -3,7 +3,7 @@ import getLatestVersion from "./bin/core/getLatestVersion.js";
 const load = async () => {
     const v = getLatestVersion();
 
-    const module = await import(`./bin/${v}/AddSubRoute/index.js`);
+    const module = await import(`./bin/${v}/AddTableName/index.js`);
 
     return await module.default;
 };

@@ -1,7 +1,7 @@
 import parseInput from "./core/parseInput.js";
 import showUsage from './core/showUsage.js';
 
-import addSubRoute from "./AddSubRoute/index.js";
+import addTableName from "./AddTableName/index.js";
 
 import pkg from '../../package.json' with { type: 'json' };
 
@@ -12,7 +12,7 @@ const run = () => {
 
   if (input.cmd === "--help" || input.cmd === "-h" || input.cmd === "help") return showUsage(version);
 
-  addSubRoute(input);
+  addTableName(input);
 };
 
 export default run;
