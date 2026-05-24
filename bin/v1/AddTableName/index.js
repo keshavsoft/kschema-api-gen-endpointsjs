@@ -28,8 +28,9 @@ export default ({ folderName = "", tableName,
 
     if (createFolderResponse.KTF) {
         updateAppJs({
-            appJsPath: `${localToPath}/routes.js`,
-            endpoint: folderName
+            appJsPath: `${localToPath}/end-points.js`,
+            endpoint: folderName,
+            inShowLog
         });
     };
 
