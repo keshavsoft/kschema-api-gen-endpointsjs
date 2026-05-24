@@ -1,0 +1,35 @@
+{
+  "name": "kschema-api-gen-endpointsjs",
+  "version": "1.1.1",
+  "description": "CLI to build for endpointsjs, the table name",
+  "keywords": [
+    "cli",
+    "scaffold",
+    "templates",
+    "node",
+    "project-generator"
+  ],
+  "dependencies": {
+  },
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "bin": {
+    "kschema-api-gen-endpointsjs": "./bin/cli.js"
+  },
+  "files": [
+    "bin/",
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "homepage": "https://cli.keshavsoft.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keshavsoft/kschema-api-gen-routesjs"
+  },
+  "bugs": {
+    "url": "https://github.com/keshavsoft/kschema-api-gen-routesjs/issues"
+  }
+}
