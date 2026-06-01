@@ -1,6 +1,7 @@
 import express from 'express';
 
 const tableName = "<TABLE_NAME>";
+const tablePath = "Data/<TABLE_NAME>";
 
 const router = express.Router();
 
