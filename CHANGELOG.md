@@ -165,3 +165,7 @@ The format is based on Keep a Changelog.
 ## [1.4.1] - 2026-05-23
 
 - only for appjs
+
+## [1.4.4] - 2026-05-23
+
+- table name var fixed
