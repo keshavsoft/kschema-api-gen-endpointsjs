@@ -1,6 +1,6 @@
 {
   "name": "kschema-api-gen-endpointsjs",
-  "version": "1.6.1",
+  "version": "1.7.1",
   "description": "CLI to build for endpointsjs, the table name, DataPath and configpath",
   "keywords": [
     "cli",
@@ -9,7 +9,9 @@
     "node",
     "project-generator"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "express-fix-routes-js": "^1.2.1"
+  },
   "type": "module",
   "exports": {
     ".": "./index.js"
