@@ -4,6 +4,11 @@ on:
   release:
     types: [published]
   workflow_dispatch:
+    inputs:
+      notify_vscode:
+        description: 'Intimate VS Code repo (run notify job)'
+        type: boolean
+        default: true
 
 jobs:
   publish:
@@ -25,3 +30,18 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  notify:
+    needs: publish
+    runs-on: ubuntu-latest
+    if: |
+      always() &&
+      needs.publish.result == 'success' &&
+      (github.event_name == 'release' || inputs.notify_vscode == true)
+    steps:
+      - name: Send Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
+          repository: keshavsoft/vs-code-ext-express-api-gen-endpoints
+          event-type: kschema_published
