@@ -20,7 +20,13 @@ jobs:
         run: npm install
 
       - name: Publish to npm
-        run: npm publish
+        run: |
+          CURRENT_VERSION=$(jq -r .version package.json)
+          if npm view kschema-api-gen-endpointsjs@$CURRENT_VERSION version >/dev/null 2>&1; then
+            echo "Version $CURRENT_VERSION is already published on npm. Skipping publication."
+          else
+            npm publish
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
