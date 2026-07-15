@@ -1,14 +1,22 @@
-import updateImports from "./UpdateRoutesJs/updateImports/index.js";
-import updateAppUse from "./UpdateRoutesJs/updateUse/index.js";
-import fs from "fs";
+import fixRoutesJs from "express-fix-routes-js";
 
-export function updateAppJs({ appJsPath, endpoint, inShowLog = true }) {
-    if (!fs.existsSync(appJsPath)) {
-        if (inShowLog) console.log("app.js file not found ?");
+const startFunc = async ({ appJsPath, endpoint, inShowLog = true }) => {
+    await fixRoutesJs({
+        showLog: true,
+        endPointsJsPath: appJsPath,
+        inActionName: endpoint,
+        inFolderName: endpoint,
+        inGetType: "simple"
+    });
 
-        return false;
-    };
+    // if (!fs.existsSync(appJsPath)) {
+    //     if (inShowLog) console.log("app.js file not found ?");
 
-    updateImports({ appJsPath, endpoint });
-    updateAppUse({ appJsPath, endpoint });
+    //     return false;
+    // };
+
+    // updateImports({ appJsPath, endpoint });
+    // updateAppUse({ appJsPath, endpoint });
 };
+
+export default startFunc;
