@@ -1,4 +1,4 @@
-name: Publish Package to npmjs
+name: Publish and Intimate VS Code
 
 on:
   workflow_dispatch:
@@ -23,3 +23,14 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  notify:
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Repository Dispatch
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GH_PAT }}
+          repository: keshavsoft/vs-code-ext-express-api-gen-endpoints
+          event-type: kschema_published
