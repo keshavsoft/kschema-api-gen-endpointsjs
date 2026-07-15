@@ -2,7 +2,7 @@ import { locateSource } from "./Helpers/steps/locateSource.js";
 import { locateDestination } from "./Helpers/steps/locateDestination.js";
 import { createFolder } from "../core/createFolder.js";
 
-import { updateAppJs } from "./Helpers/steps/updateRoutesJs.js";
+import updateAppJs from "./Helpers/steps/updateRoutesJs.js";
 import updateEndPointsFile from "./Helpers/steps/updateEndPointsFile.js";
 
 import { announce } from "./Helpers/steps/announce.js";
